@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <title>MultiSig Wallet</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2" style="text-align:center">
+        <br><br><br>
+        <button type="button" class="btn btn-default" onclick="Home.changeAdminPage()">ADMIN</button>
+        <button type="button" class="btn btn-default" onclick="Home.changeClientPage()">CLIENT</button>
+        <div id="admin-page" style="display: none;">
+          <br><br>
+          <button type="button" class="btn btn-info" onclick="Admin.createForwarder()">create Forwarder</button>
+          <p id="num-of-forwarder"></p>
+          <br><br>
+          <button type="button" class="btn btn-info" onclick="Admin.setMultisigWalletStorage()">set storage</button>
+          <p id="is-setted"></p>
+          <h3>admin 1</h3>
+          <p>address : </p><p id="admin1-address" onclick="Home.clipboard('#admin1-address')"></p>
+          <h3>admin 2</h3>
+          <p>address : </p><p id="admin2-address" onclick="Home.clipboard('#admin2-address')"></p>
+          <h3>signer 1</h3>
+          <p>address : </p><p id="signer1-address" onclick="Home.clipboard('#signer1-address')"></p>
+          <h3>signer 2</h3>
+          <p>address : </p><p id="signer2-address" onclick="Home.clipboard('#signer2-address')"></p>
+        </div>
+        <div id="client-page" style="display: none;">
+          <br><br>
+          <button type="button" class="btn btn-info" onclick="Client.requestRegistration('#setted-account')">regist</button>
+          <br>
+          <br>
+          <button type="button" class="btn btn-default" onclick="Client.handlerSetAccount('#admin1-address')">admin1</button>
+          <button type="button" class="btn btn-default" onclick="Client.handlerSetAccount('#account1')">account1</button>
+          <button type="button" class="btn btn-default" onclick="Client.handlerSetAccount('#account2')">account2</button>
+          <button type="button" class="btn btn-default" onclick="Client.handlerSetAccount('#account3')">account3</button>
+          <div align="center" id="account-info" style="display: none;">
+            <table>
+              <tr>
+                <td>
+                  <p>account address : </p>
+                </td>
+                <td>
+                  <p id="setted-account"></p>
+                </td>
+              </tr>
+              <tr><td>
+                  <p>token balance : </p>
+                </td>
+                <td>
+                  <p id="setted-account-token-balance"></p>
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                      <p>forwarder address : </p>
+                    </td>
+                <td>
+                  <p id="your-forwarder"></p>
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                      <p>forwarder ether : </p>
+                    </td>
+                <td>
+                  <p id="forwarder-ether-balance"></p>
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                      <p>forwarder token : </p>
+                    </td>
+                <td>
+                  <p id="forwarder-token-balance"></p>
+                </td>
+              </tr>
+            </table>
+
+            <button type="button" class="btn btn-default" id="ether-send-button" style="width:500px;" onclick="Client.handlerShowEtherSendBox()">ether send</button>
+          
+            <div align="center" id="ether-send-box" style="display: none">
+              <table>
+                <tr>
+                  <td>
+                    <label style="width: 60px; text-align: center">To</label>
+                  </td>
+                  <td>
+                    <input style="width:440px;" type="text" id="ether-recipient">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label style="width:60px; text-align: center">Amount</label>
+                  </td>
+                  <td>
+                    <input style="width:440px" type="number" id="ether-amount">
+                  </td>
+                </tr>
+              </table>
+              <button type="button"
+                    style="width:500px" 
+                    class="btn btn-info" 
+                    id="fee-send-hotdog"
+                    onclick="Client.handlerEtherTransfer('#setted-account')">
+                    call
+              </button>
+            </div>
+
+            <button type="button" class="btn btn-default" id="erc20-send-button" style="width:500px;" onclick="Client.handlerShowERC20SendBox()">erc20 send</button>
+          
+            <div align="center" id="erc20-send-box" style="display: none">
+              <table>
+                  <tr>
+                      <td>
+                        <label style="width: 60px; text-align: center">token address</label>
+                      </td>
+                      <td>
+                        <input style="width:440px;" type="text" id="erc20-address">
+                      </td>
+                    </tr>
+                <tr>
+                  <td>
+                    <label style="width: 60px; text-align: center">To</label>
+                  </td>
+                  <td>
+                    <input style="width:440px;" type="text" id="erc20-recipient">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label style="width:60px; text-align: center">Amount</label>
+                  </td>
+                  <td>
+                    <input style="width:440px" type="number" id="erc20-amount">
+                  </td>
+                </tr>
+              </table>
+              <button type="button"
+                    style="width:500px" 
+                    class="btn btn-info" 
+                    id="fee-send-hotdog"
+                    onclick="Client.handlerERC20Transfer('#setted-account')">
+                    call
+              </button>
+            </div>
+
+            <button type="button" class="btn btn-default" id="deposit-send-button" style="width:500px;" onclick="Client.handlerShowDepositBox()">Deposit</button>
+            
+            <div align="center" id="deposit-send-box" style="display: none">
+              <table>
+                <tr>
+                  <td>
+                    <label style="width: 60px; text-align: center">token address</label>
+                  </td>
+                  <td>
+                    <input style="width:440px;" type="text" id="deposit-token-address">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label style="width:60px; text-align: center">Amount</label>
+                  </td>
+                  <td>
+                    <input style="width:440px" type="number" id="deposit-amount">
+                  </td>
+                </tr>
+              </table>
+              <button type="button"
+                    style="width:500px" 
+                    class="btn btn-info" 
+                    id="fee-send-hotdog"
+                    onclick="Client.handlerERC20Deposit()">
+                    call
+              </button>
+            </div>
+          </div>
+          
+          <br>
+          <br>
+          <br>
+          <h3>TEST</h3>
+
+          <strong id="token-name">HotDog Token</strong>
+          <p id="token-total"></p>
+          <p id="token-address" onclick="Home.clipboard('#token-address')"></p>
+          <br>
+          
+          <strong>account1 : </strong><p id="account1" onclick="Home.clipboard('#account1')"></p>
+          <p id="account1-ether"></p>
+          <strong>account2 : </strong><p id="account2" onclick="Home.clipboard('#account2')"></p>
+          <p id="account2-ether"></p>
+          <strong>account3 : </strong><p id="account3" onclick="Home.clipboard('#account3')"></p>
+          <p id="account3-ether"></p>
+          <div align="center">
+            <table>
+              <tr>
+                <td>
+                  <label style="width: 60px; text-align: center">God</label>
+                </td>
+                <td>
+                  <input style="width:440px;" type="text" id="god-address">
+                </td>
+              </tr>
+            </table>
+          </div>
+          <button type="button"
+                style="width:500px" 
+                class="btn btn-info" 
+                id="set-god-address"
+                onclick="Client.addGodAddress()">
+                call
+          </button>
+          <button type="button"
+                style="width:500px" 
+                class="btn btn-info" 
+                id="set-god-address"
+                onclick="Client.resetGodAddress()">
+                reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="spin"></div>
+</body>
+
+</html>
+
+<style>
+  .yellow-box {
+    background-color: #FFC;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 500px;
+    font-size: 80px;
+  }
+  #timer {
+    font-size: 80px;
+    color: red;
+  }
+  @keyframes spinner-line-fade-more {
+    0%, 100% {
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+  }
+  @keyframes spinner-line-fade-quick {
+    0%, 39%, 100% {
+      opacity: 0.25;
+    }
+    40% {
+      opacity: 1;
+    }
+  }
+  @keyframes spinner-line-fade-default {
+    0%, 100% {
+      opacity: 0.22;
+    }
+    1% {
+      opacity: 1;
+    }
+  }
+</style>
