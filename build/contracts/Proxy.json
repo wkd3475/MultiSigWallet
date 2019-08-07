@@ -75,14 +75,14 @@
     "absolutePath": "/Users/jang-yonghyeon/workspace/blockchain/ethereum/MultiSigWallet/contracts/Proxy.sol",
     "exportedSymbols": {
       "Proxy": [
-        2229
+        2313
       ]
     },
-    "id": 2230,
+    "id": 2314,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2152,
+        "id": 2236,
         "literals": [
           "solidity",
           "^",
@@ -95,10 +95,10 @@
       {
         "absolutePath": "/Users/jang-yonghyeon/workspace/blockchain/ethereum/MultiSigWallet/contracts/SafeMath.sol",
         "file": "./SafeMath.sol",
-        "id": 2153,
+        "id": 2237,
         "nodeType": "ImportDirective",
-        "scope": 2230,
-        "sourceUnit": 2581,
+        "scope": 2314,
+        "sourceUnit": 2665,
         "src": "26:24:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -106,10 +106,10 @@
       {
         "absolutePath": "/Users/jang-yonghyeon/workspace/blockchain/ethereum/MultiSigWallet/contracts/ProxyStorage.sol",
         "file": "./ProxyStorage.sol",
-        "id": 2154,
+        "id": 2238,
         "nodeType": "ImportDirective",
-        "scope": 2230,
-        "sourceUnit": 2448,
+        "scope": 2314,
+        "sourceUnit": 2532,
         "src": "51:28:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -120,19 +120,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2229,
+        "id": 2313,
         "linearizedBaseContracts": [
-          2229
+          2313
         ],
         "name": "Proxy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 2156,
+            "id": 2240,
             "name": "_proxyStorageAddress",
             "nodeType": "VariableDeclaration",
-            "scope": 2229,
+            "scope": 2313,
             "src": "102:35:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -141,7 +141,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 2155,
+              "id": 2239,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "102:7:9",
@@ -155,7 +155,7 @@
           },
           {
             "body": {
-              "id": 2174,
+              "id": 2258,
               "nodeType": "Block",
               "src": "192:127:9",
               "statements": [
@@ -169,18 +169,18 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 2166,
+                        "id": 2250,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 2162,
+                          "id": 2246,
                           "name": "proxyStorageAddress",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2158,
+                          "referencedDeclaration": 2242,
                           "src": "210:19:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -195,7 +195,7 @@
                             {
                               "argumentTypes": null,
                               "hexValue": "30",
-                              "id": 2164,
+                              "id": 2248,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -218,7 +218,7 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 2163,
+                            "id": 2247,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -231,7 +231,7 @@
                             },
                             "typeName": "address"
                           },
-                          "id": 2165,
+                          "id": 2249,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -254,7 +254,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "7a65726f2061646472657373",
-                        "id": 2167,
+                        "id": 2251,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -281,21 +281,21 @@
                           "typeString": "literal_string \"zero address\""
                         }
                       ],
-                      "id": 2161,
+                      "id": 2245,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2598,
-                        2599
+                        2682,
+                        2683
                       ],
-                      "referencedDeclaration": 2599,
+                      "referencedDeclaration": 2683,
                       "src": "202:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2168,
+                    "id": 2252,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -309,25 +309,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2169,
+                  "id": 2253,
                   "nodeType": "ExpressionStatement",
                   "src": "202:58:9"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2172,
+                    "id": 2256,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 2170,
+                      "id": 2254,
                       "name": "_proxyStorageAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2156,
+                      "referencedDeclaration": 2240,
                       "src": "270:20:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -338,11 +338,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 2171,
+                      "id": 2255,
                       "name": "proxyStorageAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2158,
+                      "referencedDeclaration": 2242,
                       "src": "293:19:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -355,14 +355,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 2173,
+                  "id": 2257,
                   "nodeType": "ExpressionStatement",
                   "src": "270:42:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 2175,
+            "id": 2259,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -370,15 +370,15 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2159,
+              "id": 2243,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2158,
+                  "id": 2242,
                   "name": "proxyStorageAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2175,
+                  "scope": 2259,
                   "src": "156:27:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -387,7 +387,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2157,
+                    "id": 2241,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "156:7:9",
@@ -404,12 +404,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2160,
+              "id": 2244,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "192:0:9"
             },
-            "scope": 2229,
+            "scope": 2313,
             "src": "144:175:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -417,21 +417,21 @@
           },
           {
             "body": {
-              "id": 2196,
+              "id": 2280,
               "nodeType": "Block",
               "src": "354:554:9",
               "statements": [
                 {
                   "assignments": [
-                    2179
+                    2263
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2179,
+                      "id": 2263,
                       "name": "logicAddress",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2197,
+                      "scope": 2281,
                       "src": "364:20:9",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -440,7 +440,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 2178,
+                        "id": 2262,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "364:7:9",
@@ -453,7 +453,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2185,
+                  "id": 2269,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
@@ -464,11 +464,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 2181,
+                            "id": 2265,
                             "name": "_proxyStorageAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2156,
+                            "referencedDeclaration": 2240,
                             "src": "400:20:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -483,18 +483,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2180,
+                          "id": 2264,
                           "name": "ProxyStorage",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2447,
+                          "referencedDeclaration": 2531,
                           "src": "387:12:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ProxyStorage_$2447_$",
+                            "typeIdentifier": "t_type$_t_contract$_ProxyStorage_$2531_$",
                             "typeString": "type(contract ProxyStorage)"
                           }
                         },
-                        "id": 2182,
+                        "id": 2266,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -504,25 +504,25 @@
                         "nodeType": "FunctionCall",
                         "src": "387:34:9",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ProxyStorage_$2447",
+                          "typeIdentifier": "t_contract$_ProxyStorage_$2531",
                           "typeString": "contract ProxyStorage"
                         }
                       },
-                      "id": 2183,
+                      "id": 2267,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getLogicAddress",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2329,
+                      "referencedDeclaration": 2413,
                       "src": "387:50:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
                         "typeString": "function () view external returns (address)"
                       }
                     },
-                    "id": 2184,
+                    "id": 2268,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -549,18 +549,18 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 2191,
+                        "id": 2275,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 2187,
+                          "id": 2271,
                           "name": "logicAddress",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2179,
+                          "referencedDeclaration": 2263,
                           "src": "457:12:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -575,7 +575,7 @@
                             {
                               "argumentTypes": null,
                               "hexValue": "30",
-                              "id": 2189,
+                              "id": 2273,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -598,7 +598,7 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 2188,
+                            "id": 2272,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -611,7 +611,7 @@
                             },
                             "typeName": "address"
                           },
-                          "id": 2190,
+                          "id": 2274,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -634,7 +634,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "6572726f72203a207a65726f2061646472657373",
-                        "id": 2192,
+                        "id": 2276,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -661,21 +661,21 @@
                           "typeString": "literal_string \"error : zero address\""
                         }
                       ],
-                      "id": 2186,
+                      "id": 2270,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2598,
-                        2599
+                        2682,
+                        2683
                       ],
-                      "referencedDeclaration": 2599,
+                      "referencedDeclaration": 2683,
                       "src": "449:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2193,
+                    "id": 2277,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -689,7 +689,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2194,
+                  "id": 2278,
                   "nodeType": "ExpressionStatement",
                   "src": "449:59:9"
                 },
@@ -697,7 +697,7 @@
                   "externalReferences": [
                     {
                       "logicAddress": {
-                        "declaration": 2179,
+                        "declaration": 2263,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "664:12:9",
@@ -705,7 +705,7 @@
                       }
                     }
                   ],
-                  "id": 2195,
+                  "id": 2279,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let ptr := mload(0x40)\n    calldatacopy(ptr, 0, calldatasize())\n    let result := delegatecall(gas(), logicAddress, ptr, calldatasize(), 0, 0)\n    let size := returndatasize()\n    returndatacopy(ptr, 0, size)\n    switch result\n    case 0 {\n        revert(ptr, size)\n    }\n    default {\n        return(ptr, size)\n    }\n}",
                   "src": "527:381:9"
@@ -713,7 +713,7 @@
               ]
             },
             "documentation": null,
-            "id": 2197,
+            "id": 2281,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -721,19 +721,19 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2176,
+              "id": 2260,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "334:2:9"
             },
             "payable": true,
             "returnParameters": {
-              "id": 2177,
+              "id": 2261,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "354:0:9"
             },
-            "scope": 2229,
+            "scope": 2313,
             "src": "325:583:9",
             "stateMutability": "payable",
             "superFunction": null,
@@ -741,21 +741,21 @@
           },
           {
             "body": {
-              "id": 2215,
+              "id": 2299,
               "nodeType": "Block",
               "src": "964:106:9",
               "statements": [
                 {
                   "assignments": [
-                    2206
+                    2290
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2206,
+                      "id": 2290,
                       "name": "_god",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2216,
+                      "scope": 2300,
                       "src": "974:21:9",
                       "stateVariable": false,
                       "storageLocation": "memory",
@@ -765,7 +765,7 @@
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 2204,
+                          "id": 2288,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "974:7:9",
@@ -774,7 +774,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 2205,
+                        "id": 2289,
                         "length": null,
                         "nodeType": "ArrayTypeName",
                         "src": "974:9:9",
@@ -787,7 +787,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2212,
+                  "id": 2296,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
@@ -798,11 +798,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 2208,
+                            "id": 2292,
                             "name": "_proxyStorageAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2156,
+                            "referencedDeclaration": 2240,
                             "src": "1011:20:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -817,18 +817,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2207,
+                          "id": 2291,
                           "name": "ProxyStorage",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2447,
+                          "referencedDeclaration": 2531,
                           "src": "998:12:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ProxyStorage_$2447_$",
+                            "typeIdentifier": "t_type$_t_contract$_ProxyStorage_$2531_$",
                             "typeString": "type(contract ProxyStorage)"
                           }
                         },
-                        "id": 2209,
+                        "id": 2293,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -838,25 +838,25 @@
                         "nodeType": "FunctionCall",
                         "src": "998:34:9",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ProxyStorage_$2447",
+                          "typeIdentifier": "t_contract$_ProxyStorage_$2531",
                           "typeString": "contract ProxyStorage"
                         }
                       },
-                      "id": 2210,
+                      "id": 2294,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getGods",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2406,
+                      "referencedDeclaration": 2490,
                       "src": "998:42:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_array$_t_address_$dyn_memory_ptr_$",
                         "typeString": "function () view external returns (address[] memory)"
                       }
                     },
-                    "id": 2211,
+                    "id": 2295,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -876,26 +876,26 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2213,
+                    "id": 2297,
                     "name": "_god",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2206,
+                    "referencedDeclaration": 2290,
                     "src": "1059:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                       "typeString": "address[] memory"
                     }
                   },
-                  "functionReturnParameters": 2202,
-                  "id": 2214,
+                  "functionReturnParameters": 2286,
+                  "id": 2298,
                   "nodeType": "Return",
                   "src": "1052:11:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 2216,
+            "id": 2300,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -903,22 +903,22 @@
             "name": "getGods",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2198,
+              "id": 2282,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "930:2:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2202,
+              "id": 2286,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2201,
+                  "id": 2285,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2216,
+                  "scope": 2300,
                   "src": "953:9:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -928,7 +928,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2199,
+                      "id": 2283,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "953:7:9",
@@ -937,7 +937,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2200,
+                    "id": 2284,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "953:9:9",
@@ -952,7 +952,7 @@
               ],
               "src": "952:11:9"
             },
-            "scope": 2229,
+            "scope": 2313,
             "src": "914:156:9",
             "stateMutability": "view",
             "superFunction": null,
@@ -960,33 +960,33 @@
           },
           {
             "body": {
-              "id": 2227,
+              "id": 2311,
               "nodeType": "Block",
               "src": "1142:33:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2225,
+                    "id": 2309,
                     "name": "feeAmount",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2219,
+                    "referencedDeclaration": 2303,
                     "src": "1159:9:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
                       "typeString": "uint256[] memory"
                     }
                   },
-                  "functionReturnParameters": 2224,
-                  "id": 2226,
+                  "functionReturnParameters": 2308,
+                  "id": 2310,
                   "nodeType": "Return",
                   "src": "1152:16:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 2228,
+            "id": 2312,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -994,15 +994,15 @@
             "name": "test",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2220,
+              "id": 2304,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2219,
+                  "id": 2303,
                   "name": "feeAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2228,
+                  "scope": 2312,
                   "src": "1090:19:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1012,7 +1012,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2217,
+                      "id": 2301,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "1090:7:9",
@@ -1021,7 +1021,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2218,
+                    "id": 2302,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "1090:9:9",
@@ -1038,15 +1038,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2224,
+              "id": 2308,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2223,
+                  "id": 2307,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2228,
+                  "scope": 2312,
                   "src": "1131:9:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1056,7 +1056,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2221,
+                      "id": 2305,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "1131:7:9",
@@ -1065,7 +1065,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2222,
+                    "id": 2306,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "1131:9:9",
@@ -1080,14 +1080,14 @@
               ],
               "src": "1130:11:9"
             },
-            "scope": 2229,
+            "scope": 2313,
             "src": "1076:99:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2230,
+        "scope": 2314,
         "src": "81:1096:9"
       }
     ],
@@ -1097,14 +1097,14 @@
     "absolutePath": "/Users/jang-yonghyeon/workspace/blockchain/ethereum/MultiSigWallet/contracts/Proxy.sol",
     "exportedSymbols": {
       "Proxy": [
-        2229
+        2313
       ]
     },
-    "id": 2230,
+    "id": 2314,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2152,
+        "id": 2236,
         "literals": [
           "solidity",
           "^",
@@ -1117,10 +1117,10 @@
       {
         "absolutePath": "/Users/jang-yonghyeon/workspace/blockchain/ethereum/MultiSigWallet/contracts/SafeMath.sol",
         "file": "./SafeMath.sol",
-        "id": 2153,
+        "id": 2237,
         "nodeType": "ImportDirective",
-        "scope": 2230,
-        "sourceUnit": 2581,
+        "scope": 2314,
+        "sourceUnit": 2665,
         "src": "26:24:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1128,10 +1128,10 @@
       {
         "absolutePath": "/Users/jang-yonghyeon/workspace/blockchain/ethereum/MultiSigWallet/contracts/ProxyStorage.sol",
         "file": "./ProxyStorage.sol",
-        "id": 2154,
+        "id": 2238,
         "nodeType": "ImportDirective",
-        "scope": 2230,
-        "sourceUnit": 2448,
+        "scope": 2314,
+        "sourceUnit": 2532,
         "src": "51:28:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1142,19 +1142,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2229,
+        "id": 2313,
         "linearizedBaseContracts": [
-          2229
+          2313
         ],
         "name": "Proxy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 2156,
+            "id": 2240,
             "name": "_proxyStorageAddress",
             "nodeType": "VariableDeclaration",
-            "scope": 2229,
+            "scope": 2313,
             "src": "102:35:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1163,7 +1163,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 2155,
+              "id": 2239,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "102:7:9",
@@ -1177,7 +1177,7 @@
           },
           {
             "body": {
-              "id": 2174,
+              "id": 2258,
               "nodeType": "Block",
               "src": "192:127:9",
               "statements": [
@@ -1191,18 +1191,18 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 2166,
+                        "id": 2250,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 2162,
+                          "id": 2246,
                           "name": "proxyStorageAddress",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2158,
+                          "referencedDeclaration": 2242,
                           "src": "210:19:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -1217,7 +1217,7 @@
                             {
                               "argumentTypes": null,
                               "hexValue": "30",
-                              "id": 2164,
+                              "id": 2248,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1240,7 +1240,7 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 2163,
+                            "id": 2247,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1253,7 +1253,7 @@
                             },
                             "typeName": "address"
                           },
-                          "id": 2165,
+                          "id": 2249,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1276,7 +1276,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "7a65726f2061646472657373",
-                        "id": 2167,
+                        "id": 2251,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1303,21 +1303,21 @@
                           "typeString": "literal_string \"zero address\""
                         }
                       ],
-                      "id": 2161,
+                      "id": 2245,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2598,
-                        2599
+                        2682,
+                        2683
                       ],
-                      "referencedDeclaration": 2599,
+                      "referencedDeclaration": 2683,
                       "src": "202:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2168,
+                    "id": 2252,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1331,25 +1331,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2169,
+                  "id": 2253,
                   "nodeType": "ExpressionStatement",
                   "src": "202:58:9"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2172,
+                    "id": 2256,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 2170,
+                      "id": 2254,
                       "name": "_proxyStorageAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2156,
+                      "referencedDeclaration": 2240,
                       "src": "270:20:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1360,11 +1360,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 2171,
+                      "id": 2255,
                       "name": "proxyStorageAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2158,
+                      "referencedDeclaration": 2242,
                       "src": "293:19:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1377,14 +1377,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 2173,
+                  "id": 2257,
                   "nodeType": "ExpressionStatement",
                   "src": "270:42:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 2175,
+            "id": 2259,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1392,15 +1392,15 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2159,
+              "id": 2243,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2158,
+                  "id": 2242,
                   "name": "proxyStorageAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2175,
+                  "scope": 2259,
                   "src": "156:27:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1409,7 +1409,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2157,
+                    "id": 2241,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "156:7:9",
@@ -1426,12 +1426,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2160,
+              "id": 2244,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "192:0:9"
             },
-            "scope": 2229,
+            "scope": 2313,
             "src": "144:175:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1439,21 +1439,21 @@
           },
           {
             "body": {
-              "id": 2196,
+              "id": 2280,
               "nodeType": "Block",
               "src": "354:554:9",
               "statements": [
                 {
                   "assignments": [
-                    2179
+                    2263
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2179,
+                      "id": 2263,
                       "name": "logicAddress",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2197,
+                      "scope": 2281,
                       "src": "364:20:9",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1462,7 +1462,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 2178,
+                        "id": 2262,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "364:7:9",
@@ -1475,7 +1475,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2185,
+                  "id": 2269,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
@@ -1486,11 +1486,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 2181,
+                            "id": 2265,
                             "name": "_proxyStorageAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2156,
+                            "referencedDeclaration": 2240,
                             "src": "400:20:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1505,18 +1505,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2180,
+                          "id": 2264,
                           "name": "ProxyStorage",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2447,
+                          "referencedDeclaration": 2531,
                           "src": "387:12:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ProxyStorage_$2447_$",
+                            "typeIdentifier": "t_type$_t_contract$_ProxyStorage_$2531_$",
                             "typeString": "type(contract ProxyStorage)"
                           }
                         },
-                        "id": 2182,
+                        "id": 2266,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1526,25 +1526,25 @@
                         "nodeType": "FunctionCall",
                         "src": "387:34:9",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ProxyStorage_$2447",
+                          "typeIdentifier": "t_contract$_ProxyStorage_$2531",
                           "typeString": "contract ProxyStorage"
                         }
                       },
-                      "id": 2183,
+                      "id": 2267,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getLogicAddress",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2329,
+                      "referencedDeclaration": 2413,
                       "src": "387:50:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
                         "typeString": "function () view external returns (address)"
                       }
                     },
-                    "id": 2184,
+                    "id": 2268,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1571,18 +1571,18 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 2191,
+                        "id": 2275,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 2187,
+                          "id": 2271,
                           "name": "logicAddress",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2179,
+                          "referencedDeclaration": 2263,
                           "src": "457:12:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -1597,7 +1597,7 @@
                             {
                               "argumentTypes": null,
                               "hexValue": "30",
-                              "id": 2189,
+                              "id": 2273,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1620,7 +1620,7 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 2188,
+                            "id": 2272,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1633,7 +1633,7 @@
                             },
                             "typeName": "address"
                           },
-                          "id": 2190,
+                          "id": 2274,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1656,7 +1656,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "6572726f72203a207a65726f2061646472657373",
-                        "id": 2192,
+                        "id": 2276,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1683,21 +1683,21 @@
                           "typeString": "literal_string \"error : zero address\""
                         }
                       ],
-                      "id": 2186,
+                      "id": 2270,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2598,
-                        2599
+                        2682,
+                        2683
                       ],
-                      "referencedDeclaration": 2599,
+                      "referencedDeclaration": 2683,
                       "src": "449:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2193,
+                    "id": 2277,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1711,7 +1711,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2194,
+                  "id": 2278,
                   "nodeType": "ExpressionStatement",
                   "src": "449:59:9"
                 },
@@ -1719,7 +1719,7 @@
                   "externalReferences": [
                     {
                       "logicAddress": {
-                        "declaration": 2179,
+                        "declaration": 2263,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "664:12:9",
@@ -1727,7 +1727,7 @@
                       }
                     }
                   ],
-                  "id": 2195,
+                  "id": 2279,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let ptr := mload(0x40)\n    calldatacopy(ptr, 0, calldatasize())\n    let result := delegatecall(gas(), logicAddress, ptr, calldatasize(), 0, 0)\n    let size := returndatasize()\n    returndatacopy(ptr, 0, size)\n    switch result\n    case 0 {\n        revert(ptr, size)\n    }\n    default {\n        return(ptr, size)\n    }\n}",
                   "src": "527:381:9"
@@ -1735,7 +1735,7 @@
               ]
             },
             "documentation": null,
-            "id": 2197,
+            "id": 2281,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1743,19 +1743,19 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2176,
+              "id": 2260,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "334:2:9"
             },
             "payable": true,
             "returnParameters": {
-              "id": 2177,
+              "id": 2261,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "354:0:9"
             },
-            "scope": 2229,
+            "scope": 2313,
             "src": "325:583:9",
             "stateMutability": "payable",
             "superFunction": null,
@@ -1763,21 +1763,21 @@
           },
           {
             "body": {
-              "id": 2215,
+              "id": 2299,
               "nodeType": "Block",
               "src": "964:106:9",
               "statements": [
                 {
                   "assignments": [
-                    2206
+                    2290
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2206,
+                      "id": 2290,
                       "name": "_god",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2216,
+                      "scope": 2300,
                       "src": "974:21:9",
                       "stateVariable": false,
                       "storageLocation": "memory",
@@ -1787,7 +1787,7 @@
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 2204,
+                          "id": 2288,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "974:7:9",
@@ -1796,7 +1796,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 2205,
+                        "id": 2289,
                         "length": null,
                         "nodeType": "ArrayTypeName",
                         "src": "974:9:9",
@@ -1809,7 +1809,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2212,
+                  "id": 2296,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
@@ -1820,11 +1820,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 2208,
+                            "id": 2292,
                             "name": "_proxyStorageAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2156,
+                            "referencedDeclaration": 2240,
                             "src": "1011:20:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1839,18 +1839,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2207,
+                          "id": 2291,
                           "name": "ProxyStorage",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2447,
+                          "referencedDeclaration": 2531,
                           "src": "998:12:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ProxyStorage_$2447_$",
+                            "typeIdentifier": "t_type$_t_contract$_ProxyStorage_$2531_$",
                             "typeString": "type(contract ProxyStorage)"
                           }
                         },
-                        "id": 2209,
+                        "id": 2293,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1860,25 +1860,25 @@
                         "nodeType": "FunctionCall",
                         "src": "998:34:9",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ProxyStorage_$2447",
+                          "typeIdentifier": "t_contract$_ProxyStorage_$2531",
                           "typeString": "contract ProxyStorage"
                         }
                       },
-                      "id": 2210,
+                      "id": 2294,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getGods",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2406,
+                      "referencedDeclaration": 2490,
                       "src": "998:42:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_array$_t_address_$dyn_memory_ptr_$",
                         "typeString": "function () view external returns (address[] memory)"
                       }
                     },
-                    "id": 2211,
+                    "id": 2295,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1898,26 +1898,26 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2213,
+                    "id": 2297,
                     "name": "_god",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2206,
+                    "referencedDeclaration": 2290,
                     "src": "1059:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                       "typeString": "address[] memory"
                     }
                   },
-                  "functionReturnParameters": 2202,
-                  "id": 2214,
+                  "functionReturnParameters": 2286,
+                  "id": 2298,
                   "nodeType": "Return",
                   "src": "1052:11:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 2216,
+            "id": 2300,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1925,22 +1925,22 @@
             "name": "getGods",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2198,
+              "id": 2282,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "930:2:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2202,
+              "id": 2286,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2201,
+                  "id": 2285,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2216,
+                  "scope": 2300,
                   "src": "953:9:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1950,7 +1950,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2199,
+                      "id": 2283,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "953:7:9",
@@ -1959,7 +1959,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2200,
+                    "id": 2284,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "953:9:9",
@@ -1974,7 +1974,7 @@
               ],
               "src": "952:11:9"
             },
-            "scope": 2229,
+            "scope": 2313,
             "src": "914:156:9",
             "stateMutability": "view",
             "superFunction": null,
@@ -1982,33 +1982,33 @@
           },
           {
             "body": {
-              "id": 2227,
+              "id": 2311,
               "nodeType": "Block",
               "src": "1142:33:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2225,
+                    "id": 2309,
                     "name": "feeAmount",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2219,
+                    "referencedDeclaration": 2303,
                     "src": "1159:9:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
                       "typeString": "uint256[] memory"
                     }
                   },
-                  "functionReturnParameters": 2224,
-                  "id": 2226,
+                  "functionReturnParameters": 2308,
+                  "id": 2310,
                   "nodeType": "Return",
                   "src": "1152:16:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 2228,
+            "id": 2312,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2016,15 +2016,15 @@
             "name": "test",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2220,
+              "id": 2304,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2219,
+                  "id": 2303,
                   "name": "feeAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2228,
+                  "scope": 2312,
                   "src": "1090:19:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2034,7 +2034,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2217,
+                      "id": 2301,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "1090:7:9",
@@ -2043,7 +2043,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2218,
+                    "id": 2302,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "1090:9:9",
@@ -2060,15 +2060,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2224,
+              "id": 2308,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2223,
+                  "id": 2307,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2228,
+                  "scope": 2312,
                   "src": "1131:9:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2078,7 +2078,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2221,
+                      "id": 2305,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "1131:7:9",
@@ -2087,7 +2087,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2222,
+                    "id": 2306,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "1131:9:9",
@@ -2102,14 +2102,14 @@
               ],
               "src": "1130:11:9"
             },
-            "scope": 2229,
+            "scope": 2313,
             "src": "1076:99:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2230,
+        "scope": 2314,
         "src": "81:1096:9"
       }
     ],
@@ -2135,10 +2135,10 @@
     "1565051276348": {
       "events": {},
       "links": {},
-      "address": "0x52a550da208fc8253aef744a70713defef6a9aba",
-      "transactionHash": "0x29f59482a3328269867480e4107bfa465e84c0833a592c2efb3ec41b4ecbc5c2"
+      "address": "0xd991ebb12c0e7baf591758b1837c319297c6754e",
+      "transactionHash": "0x80d3c44b2eb5ab88b4da8cfdf4f40908b8f5ac1836f5ce496e0935fd6a611d79"
     }
   },
   "schemaVersion": "2.0.2",
-  "updatedAt": "2019-08-06T07:25:15.710Z"
+  "updatedAt": "2019-08-07T01:26:42.691Z"
 }

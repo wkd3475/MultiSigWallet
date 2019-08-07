@@ -38,12 +38,21 @@ const Home = {
         document.getElementById('admin2-address').innerText = auth.admin2;
         document.getElementById('signer1-address').innerText = auth.signer1;
         document.getElementById('signer2-address').innerText = auth.signer2;
+        document.getElementById('deposit-wallet-ether-balance').innerText = await web3.eth.getBalance(DEPOSIT_MULTISIG_WALLET_ADDRESS) + " wei";
+        document.getElementById('deposit-wallet-token-balance').innerText = await this.getTokenBalance(DEPOSIT_MULTISIG_WALLET_ADDRESS) + " HD";
+        document.getElementById('withdraw-wallet-ether-balance').innerText = await web3.eth.getBalance(WITHDRAW_MULTISIG_WALLET_ADDRESS) + " wei";
+        document.getElementById('withdraw-wallet-token-balance').innerText = await this.getTokenBalance(WITHDRAW_MULTISIG_WALLET_ADDRESS) + " HD";
+
 
         if(pageSession == 'admin') {
             this.changeAdminPage();
         } else if(pageSession == 'client') {
             this.changeClientPage();
         }
+    },
+
+    getTokenBalance: async function (walletAddress) {
+        return await tokenContract.methods.balanceOf(walletAddress).call();
     },
     
     changeClientPage: function () {
@@ -161,12 +170,12 @@ const Client = {
         $('#account3').text(auth.client3);
     },
 
-    handlerEtherTransfer: function(element) {
+    etherTransferHandler: function(element) {
         const walletAddress = $(element).text();
         this.etherTransfer(walletAddress);
     },
 
-    handlerShowEtherSendBox: function(element) {
+    showEtherSendBoxHandler: function(element) {
         if ($('#ether-send-box').is(':visible')) {
             $('#ether-send-box').hide();
         } else {
@@ -174,12 +183,12 @@ const Client = {
         }
     },
 
-    handlerERC20Transfer: function(element) {
+    ERC20TransferHandler: function(element) {
         const walletAddress = $(element).text();
         this.erc20Transfer(walletAddress);
     },
 
-    handlerShowERC20SendBox: function () {
+    showERC20SendBoxHandler: function () {
         if ($('#erc20-send-box').is(':visible')) {
             $('#erc20-send-box').hide();
         } else {
@@ -187,7 +196,7 @@ const Client = {
         }
     },
 
-    handlerERC20Deposit: function () {
+    ERC20DepositHandler: function () {
         const _walletAddress = $('#setted-account').text();
         const _tokenAddress = $('#deposit-token-address').val();
         const _recipient = DEPOSIT_MULTISIG_WALLET_ADDRESS;
@@ -197,7 +206,7 @@ const Client = {
         this.ERC20Deposit(_walletAddress, _tokenAddress, _recipient, _forwarder, _amount);
     },
 
-    handlerShowDepositBox: function () {
+    showDepositBoxHandler: function () {
         if ($('#deposit-send-box').is(':visible')) {
             $('#deposit-send-box').hide();
         } else {
@@ -205,7 +214,7 @@ const Client = {
         }
     },
 
-    handlerSetAccount: async function (element) {
+    setAccountHandler: async function (element) {
         const walletAddress = $(element).text();
         this.setAccount(walletAddress);
         $('#account-info').show();
@@ -268,20 +277,9 @@ const Client = {
     etherSend: async function(walletAddress, recipient, amount) {
         await web3.eth.sendTransaction({
             from: walletAddress,
-            to: PROXY_ADDRESS,
-            gas: 250000,
-            value: totalFee,
-            data: web3.eth.abi.encodeFunctionCall({
-                name: 'etherSendFree',
-                type: 'function',
-                inputs: [{
-                    type: 'address',
-                    name: 'recipient',
-                }, {
-                    type: 'uint256',
-                    name: 'amount'
-                }]
-            }, [recipient, amount])
+            to: recipient,
+            gas: 1000000,
+            value: amount,
         });
     },
 

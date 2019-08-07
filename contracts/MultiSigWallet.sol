@@ -27,18 +27,18 @@ contract Forwarder {
 
   modifier onlyParent {
     if (msg.sender != parentAddress) {
-      revert();
+      revert("sender is not parent");
     }
     _;
   }
 
   function() public payable {
-    if(state != true) {
-        revert();
+    if(state == false) {
+        revert("state false");
     }
 
     parentAddress.transfer(msg.value);
-    parentAddress.depositEther(msg.value);
+    WalletSimple(parentAddress).depositEther(msg.value);
     emit ForwarderDeposited(msg.sender, msg.value, msg.data);
   }
 
@@ -51,7 +51,7 @@ contract Forwarder {
       return;
     }
     if (!instance.transfer(parentAddress, forwarderBalance)) {
-      revert();
+      revert("fail to transfer");
     }
     emit TokensFlushed(tokenContractAddress, forwarderBalance);
   }
@@ -75,7 +75,7 @@ contract Forwarder {
 
   function depositERC20(address tokenAddress, address sender, uint256 amount) public {
     ERC20Interface(tokenAddress).transferFrom(sender, parentAddress, amount);
-    parentAddress.depositERC20(tokenAddress, amount);
+    WalletSimple(parentAddress).depositERC20(tokenAddress, amount);
   }
 }
 
@@ -119,7 +119,7 @@ contract WalletSimple {
   constructor (address[] allowedSigners) public {
     if (allowedSigners.length != 3) {
       // Invalid number of signers
-      revert();
+      revert("wrong number of signers");
     }
     signers = allowedSigners;
   }
@@ -130,7 +130,6 @@ contract WalletSimple {
 
   function() public payable {
     if (msg.value > 0) {
-      MultiSigWalletStorage(storageAddress).depositEther(msg.sender, msg.value);
       emit Deposited(msg.sender, msg.value, msg.data);
     }
   }
@@ -140,14 +139,14 @@ contract WalletSimple {
   }
 
   function depositEther(uint256 amount) public {
-    if(storageAddress.isForwarder(msg.sender)) {
-      storageAddress.depositEther(msg.sender, amount);
+    if(MultiSigWalletStorage(storageAddress).isForwarder(msg.sender)) {
+      MultiSigWalletStorage(storageAddress).depositEther(msg.sender, amount);
     }
   }
 
   function depositERC20(address tokenAddress, uint256 amount) public {
-    if(storageAddress.isForwarder(msg.sender)) {
-      storageAddress.depositERC20(tokenAddress, msg.sender, amount);
+    if(MultiSigWalletStorage(storageAddress).isForwarder(msg.sender)) {
+      MultiSigWalletStorage(storageAddress).depositERC20(tokenAddress, msg.sender, amount);
     }
   }
 
@@ -217,12 +216,12 @@ contract WalletSimple {
     // Verify if we are in safe mode. In safe mode, the wallet can only send to signers
     if (safeMode && !isSigner(toAddress)) {
       // We are in safe mode and the toAddress is not a signer. Disallow!
-      revert();
+      revert("not signer");
     }
     // Verify that the transaction has not expired
     if (expireTime < block.timestamp) {
       // Transaction expired
-      revert();
+      revert("over time");
     }
 
     // Try to insert the sequence ID. Will throw if the sequence id was invalid
@@ -230,11 +229,11 @@ contract WalletSimple {
 
     if (!isSigner(otherSigner)) {
       // Other signer not on this wallet or operation does not match arguments
-      revert();
+      revert("not signer");
     }
     if (otherSigner == msg.sender) {
       // Cannot approve own transaction
-      revert();
+      revert("same signer");
     }
 
     return otherSigner;
@@ -257,7 +256,7 @@ contract WalletSimple {
 
   function recoverAddressFromSignature(bytes32 operationHash, bytes signature) private pure returns (address) {
     if (signature.length != 65) {
-      revert();
+      revert("wrong signature");
     }
     // We need to unpack the signature, which is given as an array of 65 bytes (from eth.sign)
     bytes32 r;
@@ -280,7 +279,7 @@ contract WalletSimple {
     for (uint i = 0; i < SEQUENCE_ID_WINDOW_SIZE; i++) {
       if (recentSequenceIds[i] == sequenceId) {
         // This sequence ID has been used before. Disallow!
-        revert();
+        revert("wrong sequenceId");
       }
       if (recentSequenceIds[i] < recentSequenceIds[lowestValueIndex]) {
         lowestValueIndex = i;
@@ -310,7 +309,7 @@ contract WalletSimple {
   }
 
   function isSetted() public view returns (bool) {
-    if(storageAddress == address(0)) {
+    if(MultiSigWalletStorage(storageAddress) == address(0)) {
         return false;
     } else {
         return true;

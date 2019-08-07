@@ -38,16 +38,22 @@
           <p>address : </p><p id="signer1-address" onclick="Home.clipboard('#signer1-address')"></p>
           <h3>signer 2</h3>
           <p>address : </p><p id="signer2-address" onclick="Home.clipboard('#signer2-address')"></p>
+          <h3>deposit wallet</h3>
+          <p>ether balance : </p><p id="deposit-wallet-ether-balance"></p>
+          <p>token balance : </p><p id="deposit-wallet-token-balance"></p>
+          <h3>withdraw wallet</h3>
+          <p>ether balance : </p><p id="withdraw-wallet-ether-balance"></p>
+          <p>token balance : </p><p id="withdraw-wallet-token-balance"></p>
         </div>
         <div id="client-page" style="display: none;">
           <br><br>
           <button type="button" class="btn btn-info" onclick="Client.requestRegistration('#setted-account')">regist</button>
           <br>
           <br>
-          <button type="button" class="btn btn-default" onclick="Client.handlerSetAccount('#admin1-address')">admin1</button>
-          <button type="button" class="btn btn-default" onclick="Client.handlerSetAccount('#account1')">account1</button>
-          <button type="button" class="btn btn-default" onclick="Client.handlerSetAccount('#account2')">account2</button>
-          <button type="button" class="btn btn-default" onclick="Client.handlerSetAccount('#account3')">account3</button>
+          <button type="button" class="btn btn-default" onclick="Client.setAccountHandler('#admin1-address')">admin1</button>
+          <button type="button" class="btn btn-default" onclick="Client.setAccountHandler('#account1')">account1</button>
+          <button type="button" class="btn btn-default" onclick="Client.setAccountHandler('#account2')">account2</button>
+          <button type="button" class="btn btn-default" onclick="Client.setAccountHandler('#account3')">account3</button>
           <div align="center" id="account-info" style="display: none;">
             <table>
               <tr>
@@ -91,7 +97,7 @@
               </tr>
             </table>
 
-            <button type="button" class="btn btn-default" id="ether-send-button" style="width:500px;" onclick="Client.handlerShowEtherSendBox()">ether send</button>
+            <button type="button" class="btn btn-default" id="ether-send-button" style="width:500px;" onclick="Client.showEtherSendBoxHandler()">ether send</button>
           
             <div align="center" id="ether-send-box" style="display: none">
               <table>
@@ -116,12 +122,12 @@
                     style="width:500px" 
                     class="btn btn-info" 
                     id="fee-send-hotdog"
-                    onclick="Client.handlerEtherTransfer('#setted-account')">
+                    onclick="Client.etherTransferHandler('#setted-account')">
                     call
               </button>
             </div>
 
-            <button type="button" class="btn btn-default" id="erc20-send-button" style="width:500px;" onclick="Client.handlerShowERC20SendBox()">erc20 send</button>
+            <button type="button" class="btn btn-default" id="erc20-send-button" style="width:500px;" onclick="Client.showERC20SendBoxHandler()">erc20 send</button>
           
             <div align="center" id="erc20-send-box" style="display: none">
               <table>
@@ -154,12 +160,12 @@
                     style="width:500px" 
                     class="btn btn-info" 
                     id="fee-send-hotdog"
-                    onclick="Client.handlerERC20Transfer('#setted-account')">
+                    onclick="Client.ERC20TransferHandler('#setted-account')">
                     call
               </button>
             </div>
 
-            <button type="button" class="btn btn-default" id="deposit-send-button" style="width:500px;" onclick="Client.handlerShowDepositBox()">Deposit</button>
+            <button type="button" class="btn btn-default" id="deposit-send-button" style="width:500px;" onclick="Client.showDepositBoxHandler()">Deposit</button>
             
             <div align="center" id="deposit-send-box" style="display: none">
               <table>
@@ -184,7 +190,7 @@
                     style="width:500px" 
                     class="btn btn-info" 
                     id="fee-send-hotdog"
-                    onclick="Client.handlerERC20Deposit()">
+                    onclick="Client.ERC20DepositHandler()">
                     call
               </button>
             </div>

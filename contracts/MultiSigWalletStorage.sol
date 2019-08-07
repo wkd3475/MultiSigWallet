@@ -8,6 +8,20 @@ contract MultiSigWalletStorage  {
     address private _depositAddress;
     address private _withdrawAddress;
 
+    modifier onlyDepositWallet {
+    if (_depositAddress != msg.sender) {
+      revert("not deposit wallet");
+    }
+    _;
+  }
+
+  modifier onlyWithdrawWallet {
+    if (_withdrawAddress != msg.sender) {
+      revert("not withdraw wallet");
+    }
+    _;
+  }
+
     //_etherBalances: forwarder => balance
     //_ERC20Balances: tokenAddress => forwarder => balance
     mapping(address => uint256) private _etherBalances;
@@ -21,14 +35,12 @@ contract MultiSigWalletStorage  {
     }
 
     //보안을 위해 이 기능은 업는 것도 고려해볼만함
-    function delegateDepositAddress(address target) public {
-        require(msg.sender == _depositAddress, "not a depositAddress");
+    function delegateDepositAddress(address target) public onlyDepositWallet {
         _depositAddress = target;
     }
 
     //보안을 위해 이 기능은 업는 것도 고려해볼만함
-    function delegateWithdrawAddress(address target) public {
-        require(msg.sender == _withdrawAddress, "not a withdrawAddress");
+    function delegateWithdrawAddress(address target) public onlyWithdrawWallet {
         _withdrawAddress = target;
     }
 
@@ -48,8 +60,7 @@ contract MultiSigWalletStorage  {
         }
     }
 
-    function addForwarder(address forwarder, address client) public {
-        require(msg.sender == _depositAddress, "not a depostiADdress");
+    function addForwarder(address forwarder, address client) public onlyDepositWallet {
         _forwarderToClient[forwarder] = client;
         _clientToForwarder[client] = forwarder;
     }
@@ -70,24 +81,21 @@ contract MultiSigWalletStorage  {
         return _ERC20Balances[tokenAddress][forwarder];
     }
     
-    function depositEther(address forwarder, uint256 amount) public {
-        require(msg.sender == _depositAddress, "not a depositAddress");
+    function depositEther(address forwarder, uint256 amount) public onlyDepositWallet {
         require(amount > 0, "wrong amount");
         _etherBalances[forwarder] = _etherBalances[forwarder].add(amount);
 
         emit etherDeposited(forwarder, amount);
     }
 
-    function depositERC20(address tokenAddress, address forwarder, uint256 amount) public {
-        require(msg.sender == _depositAddress, "not a depositAddress");
+    function depositERC20(address tokenAddress, address forwarder, uint256 amount) public onlyDepositWallet {
         require(amount > 0, "wrong amount");
        _ERC20Balances[tokenAddress][forwarder] = _ERC20Balances[tokenAddress][forwarder].add(amount);
 
         emit ERC20Deposited(tokenAddress, forwarder, amount);
     }
 
-    function withdrawEther(address forwarder, uint256 amount) public {
-        require(msg.sender == _withdrawAddress, "not a withdrawAddress");
+    function withdrawEther(address forwarder, uint256 amount) public onlyWithdrawWallet {
         //balance 체크 필요
         require(amount > 0, "wrong amount");
         
@@ -96,8 +104,7 @@ contract MultiSigWalletStorage  {
         emit etherWithdrawed(forwarder, amount);
     }
 
-    function withdrawERC20(address tokenAddress, address forwarder, uint256 amount) public {
-        require(msg.sender == _withdrawAddress, "not a withdrawAddress");
+    function withdrawERC20(address tokenAddress, address forwarder, uint256 amount) public onlyWithdrawWallet {
         //balance 체크 필요
         require(amount > 0, "wrong amount");
         
