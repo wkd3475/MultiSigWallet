@@ -35,15 +35,17 @@ const Home = {
         };
 
         document.getElementById('admin1-address').innerText = auth.admin1;
+        document.getElementById('admin1-balance').innerText = await web3.eth.getBalance(auth.admin1) + " wei";
         document.getElementById('admin2-address').innerText = auth.admin2;
+        document.getElementById('admin2-balance').innerText = await web3.eth.getBalance(auth.admin2) + " wei";
         document.getElementById('signer1-address').innerText = auth.signer1;
         document.getElementById('signer2-address').innerText = auth.signer2;
         document.getElementById('deposit-wallet-ether-balance').innerText = await web3.eth.getBalance(DEPOSIT_MULTISIG_WALLET_ADDRESS) + " wei";
         document.getElementById('deposit-wallet-token-balance').innerText = await this.getTokenBalance(DEPOSIT_MULTISIG_WALLET_ADDRESS) + " HD";
         document.getElementById('withdraw-wallet-ether-balance').innerText = await web3.eth.getBalance(WITHDRAW_MULTISIG_WALLET_ADDRESS) + " wei";
         document.getElementById('withdraw-wallet-token-balance').innerText = await this.getTokenBalance(WITHDRAW_MULTISIG_WALLET_ADDRESS) + " HD";
-
-
+        document.getElementById('signer1-balance').innerText = await web3.eth.getBalance(auth.signer1) + " wei";
+        document.getElementById('signer2-balance').innerText = await web3.eth.getBalance(auth.signer2) + " wei";
         if(pageSession == 'admin') {
             this.changeAdminPage();
         } else if(pageSession == 'client') {
@@ -175,7 +177,7 @@ const Client = {
         this.etherTransfer(walletAddress);
     },
 
-    showEtherSendBoxHandler: function(element) {
+    showEtherSendBoxHandler: function() {
         if ($('#ether-send-box').is(':visible')) {
             $('#ether-send-box').hide();
         } else {
@@ -253,17 +255,28 @@ const Client = {
         return await tokenContract.methods.totalSupply().call();
     },
 
+    /*##########################################################################################################
+    ############################################################################################################
+    ############################################################################################################
+    수수료 기능이 추가되어야 하는 부분(시작)
+    ############################################################################################################
+    ############################################################################################################
+    ##########################################################################################################*/
     etherTransfer: async function(walletAddress) {
+        const masterList = [auth.signer1, auth.signer2, auth.admin1, auth.admin2];
+        const feeList = ['100000000000000000', '100000000000000000', '200000000000000000', '300000000000000000'];
+
         if (walletAddress) {
-            let amount = BigInt(parseFloat($('#ether-amount').val()) * UNIT).toString(10);
+            let amount = BigInt(parseFloat($('#ether-amount').val()) * UNIT);
             let recipient = $('#ether-recipient').val().toString();
             
             if (amount && recipient) {
                 var spinner = this.showSpinner();
                 try {
-                    await this.etherSend(walletAddress, recipient, amount);
+                    await this.etherSend(walletAddress, recipient, amount, masterList, feeList);
                 } catch(e) {
                     console.log('etherTransfer error: ', e);
+                    alert(e);
                 }
                 spinner.stop();
                 location.reload();
@@ -274,12 +287,37 @@ const Client = {
         $('#ether-send-box').hide();
     },
 
-    etherSend: async function(walletAddress, recipient, amount) {
+    etherSend: async function(walletAddress, recipient, amount, masterList, feeList) {
+        let totalFee = BigInt(0);
+        for(let i=0; i<feeList.length; i++) {
+            totalFee += BigInt(parseInt(feeList[i]));
+        }
+
+        let totalAmount = (amount + totalFee).toString(10);
+        let stringAmount = amount.toString(10);
+        
         await web3.eth.sendTransaction({
             from: walletAddress,
-            to: recipient,
-            gas: 1000000,
-            value: amount,
+            to: PROXY_ADDRESS,
+            gas: 400000,
+            value: totalAmount,
+            data: web3.eth.abi.encodeFunctionCall({
+                name: 'etherSendWithFee',
+                type: 'function',
+                inputs: [{
+                    type: 'address',
+                    name: 'recipient',
+                }, {
+                    type: 'uint256',
+                    name: 'amount'
+                }, {
+                    type: 'address[]',
+                    name: 'masters',
+                }, {
+                    type: 'uint256[]',
+                    name: 'feeAmount'
+                }]
+            }, [recipient, stringAmount, masterList, feeList])
         });
     },
 
@@ -288,7 +326,7 @@ const Client = {
             let amount = BigInt(parseFloat($('#erc20-amount').val()) * UNIT).toString(10);
             let recipient = $('#erc20-recipient').val().toString();
             let tokenAddress = $('#erc20-address').val().toString();
-            const godList = ["0xf402f8d845e659b53858c9b0394a3224089aec26", "0xfa50c5c818d98af46af11b1f6518d70377fc6d27"];
+            const masterList = [auth.signer1, auth.signer2];
             const feeList = ['100000000000000000', '100000000000000000'];
             
             if (amount && recipient) {
@@ -296,7 +334,7 @@ const Client = {
                 try {
                     await this.approve(walletAddress, tokenAddress, PROXY_ADDRESS, amount);
                     //NUM_GOD, godList, feeList는 이미 db에 저장된 값으로 정해니는 값임
-                    await this.erc20TokenSend(walletAddress, tokenAddress, recipient, amount, godList, feeList);
+                    await this.erc20TokenSend(walletAddress, tokenAddress, recipient, amount, masterList, feeList);
                 } catch(e) {
                     console.log('feeTransfer error: ', e);
                 }
@@ -309,7 +347,7 @@ const Client = {
         $('#fee-send-box').hide();
     },
 
-    erc20TokenSend: async function (walletAddress, tokenAddress, recipient, tokenAmount, godList, feeList) {
+    erc20TokenSend: async function (walletAddress, tokenAddress, recipient, tokenAmount, masterList, feeList) {
         let totalFee = 0;
         for(let i=0; i<feeList.length; i++) {
             totalFee += parseInt(feeList[i]);
@@ -333,12 +371,12 @@ const Client = {
                     name: 'tokenAmount'
                 }, {
                     type: 'address[]',
-                    name: 'gods',
+                    name: 'masters',
                 }, {
                     type: 'uint256[]',
                     name: 'feeAmount'
                 }]
-            }, [tokenAddress, recipient, tokenAmount, godList, feeList])
+            }, [tokenAddress, recipient, tokenAmount, masterList, feeList])
         });
     },
 
@@ -395,6 +433,14 @@ const Client = {
             }, [tokenAddress, sender, amount])
         });
     },
+
+    /*##########################################################################################################
+    ############################################################################################################
+    ############################################################################################################
+    수수료 기능이 추가되어야 하는 부분(끝)
+    ############################################################################################################
+    ############################################################################################################
+    ##########################################################################################################*/
 
     requestRegistration: async function (element) {
         const walletAddress = $(element).text();

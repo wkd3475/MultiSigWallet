@@ -27,13 +27,4 @@ contract Proxy {
             default { return(ptr, size) }
         }
     }
-
-    function getGods() public view returns(address[]) {
-        address[] memory _god = ProxyStorage(_proxyStorageAddress).getGods();
-        return _god;
-    }
-
-    function test(uint256[] feeAmount) public view returns(uint256[]) {
-        return feeAmount;
-    }
 }

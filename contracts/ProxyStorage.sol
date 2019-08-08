@@ -4,9 +4,9 @@ contract ProxyStorage {
     
     address private _owner;
     uint256 eth = 10 ** 15;
-    address[] private _god;
-    mapping(address => address) _god_map;
-    uint256 _value = 10 ** 17;
+    address[] private _gods;
+    mapping(address => address) _slaveToMaster;
+    mapping(address => address[]) _masterToSlaves;
     address private _logicAddress;
 
     constructor (address logicAddress) public {
@@ -33,48 +33,37 @@ contract ProxyStorage {
         return _logicAddress;
     }
 
-    function getNumGod() public view returns(uint256) {
-        return _god.length;
+    function addSlaveToMaster(address slave, address master) public onlyOwner {
+        _slaveToMaster[slave] = master;
+        _masterToSlaves[master].push(slave);
+    }
+
+    function getNumGods() public view returns(uint256) {
+        return _gods.length;
     }
 
     function addGod(address god) public onlyOwner {
-        _god.push(god);
-        _god_map[god] = god;
+        _gods.push(god);
+        _slaveToMaster[god] = god; //god은 자기 자신이 god
     }
 
-    // function addGods(address[] god) public onlyOwner {
-    //     uint256 length = god.length;
-    //     for(uint8 i=0; i<length; i++) {
-    //         _god.push(god[i]);
-    //         _god_map[god[i]] = god[i];
-    //     }
-    // }
-
     function deleteGods() public onlyOwner {
-        uint256 length = getNumGod();
+        uint256 length = getNumGods();
         for(uint8 i=0; i<length; i++) {
-            _god_map[_god[i]] = address(0);
+            _slaveToMaster[_gods[i]] = address(0);
         }
-        _god.length = 0;
+        _gods.length = 0;
     }
 
     function getGods() public view returns(address[]) {
-        return _god;
+        return _gods;
     }
 
-    function existGod(address god) public view returns(bool) {
-        if(_god_map[god] == address(0)) {
+    function isGod(address god) public view returns(bool) {
+        if(_slaveToMaster[god] == god) {
             return false;
         } else {
             return true;
         }
-    }
-
-    function getValue() public view returns(uint256) {
-        return _value;
-    }
-
-    function setValue(uint256 value) public {
-        _value = value;
     }
 }
